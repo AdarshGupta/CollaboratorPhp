@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/problems', function () {
-	//$problems = DB::table('problems')->get();
-	$problems = App\Problem::all();
-    return view('problems.index', compact('problems'));
-});
+Route::get('/problems', 'ProblemsController@index');
 
-Route::get('/problems/{problem}', function ($id) {
-	$problem = App\Problem::find($id);
-	//$problem = DB::table('problems')->find($id);
-    return view('problems.show', compact('problem'));
-});
+Route::get('/problems/{problem}', 'ProblemsController@show');
