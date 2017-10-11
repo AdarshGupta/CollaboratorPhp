@@ -12,11 +12,13 @@
 */
 
 Route::get('/problems', function () {
-	$problems = DB::table('problems')->get();
+	//$problems = DB::table('problems')->get();
+	$problems = App\Problem::all();
     return view('problems.index', compact('problems'));
 });
 
 Route::get('/problems/{problem}', function ($id) {
-	$problem = DB::table('problems')->find($id);
+	$problem = App\Problem::find($id);
+	//$problem = DB::table('problems')->find($id);
     return view('problems.show', compact('problem'));
 });
