@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Dashboard</h1>
+    <h1>Problems</h1>
 
     
 
@@ -13,6 +13,7 @@
             <a href="/problems/{{ $problem->id }}" class="problemTitle">
                 <h4>{{ $problem->summary }}</h4>
             </a>
+            <hr>
             <p class="problemBody">
                 {{ $problem->body }}
             </p>

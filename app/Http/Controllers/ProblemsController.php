@@ -19,4 +19,26 @@ class ProblemsController extends Controller
     	//$problem = Problem::find($id);
     	return view('problems.show', compact('problem'));
     }
+
+    public function create()
+    {
+        return view('problems.create');
+    }
+
+    public function store()
+    {
+        // Input validation - server side
+        $this->validate(request(), [
+            'summary' => 'required',
+            'body' => 'required'
+        ]);
+
+        Problem::create([
+            'summary' => request('summary'),
+            'body' => request('body')
+        ]);
+
+        //then redirect to homepage
+        return redirect('/problems');
+    }
 }

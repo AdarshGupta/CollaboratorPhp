@@ -13,4 +13,10 @@
 
 Route::get('/problems', 'ProblemsController@index');
 
+// Put create before indvidual problem {problem}, it mididentfies
+Route::get('/problems/create', 'ProblemsController@create');
+
 Route::get('/problems/{problem}', 'ProblemsController@show');
+
+// POST /problems  -- to submit post
+Route::post('/problems', 'ProblemsController@store');
