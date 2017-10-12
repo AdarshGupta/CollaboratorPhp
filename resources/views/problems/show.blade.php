@@ -16,4 +16,19 @@
 		</div>
 	</div>
 
+	<h2 class="solutions-suggested">Suggested Solutions</h2>
+
+	<div class="solutions">
+		<ul class="list-group">
+			@foreach($problem->solutions as $solution)
+			<li class="card list-group-item">
+				<strong>
+					{{ $solution->created_at->diffForHumans() }}: &nbsp;
+				</strong>
+				{{ $solution->body }}	
+			</li>
+			@endforeach
+		</ul>
+	</div>
+
 @endsection

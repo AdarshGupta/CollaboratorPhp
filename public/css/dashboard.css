@@ -161,3 +161,10 @@ label{
   font-family: 'Dosis', sans-serif;
   text-transform: capitalize;
 }
+
+.solutions-suggested{
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #4e4caf;
+}
