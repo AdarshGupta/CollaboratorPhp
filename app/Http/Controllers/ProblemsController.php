@@ -9,7 +9,7 @@ class ProblemsController extends Controller
 {
     public function index()
     {
-    	$problems = Problem::all();
+    	$problems = Problem::inRandomOrder()->get();
     	return view('problems.index', compact('problems'));
     }
 

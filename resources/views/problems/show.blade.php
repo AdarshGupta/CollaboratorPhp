@@ -6,9 +6,9 @@
 	
 	<div class="card">
 		<div class="card-body">
-			<a href="/problems/{{ $problem->id }}" class="problemTitle">
+			<span class="showProblem">
 				<h3>{{ $problem->summary }}</h3>
-			</a>
+			</span>
 			<hr>
 			<p class="problemBody">
 				{{ $problem->body }}

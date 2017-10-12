@@ -18,7 +18,8 @@
                 {{ $problem->body }}
             </p>
           </div>
-        </div>       
+        </div>
+               
     @endforeach
 
 @endsection

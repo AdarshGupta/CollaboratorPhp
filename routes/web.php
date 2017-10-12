@@ -13,7 +13,8 @@
 
 Route::get('/problems', 'ProblemsController@index');
 
-// Put create before indvidual problem {problem}, it mididentfies
+// Put create before indvidual problem {problem}, it mis-identfies.
+//Because Laravel will try to match the route according to the ORDER of routes registered. Since there is no post with an id of 'create', you get your error.
 Route::get('/problems/create', 'ProblemsController@create');
 
 Route::get('/problems/{problem}', 'ProblemsController@show');
