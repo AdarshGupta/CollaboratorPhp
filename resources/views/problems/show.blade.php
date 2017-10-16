@@ -31,4 +31,24 @@
 		</ul>
 	</div>
 
+	<hr>
+	{{-- Add a comment --}}
+
+	<div class="card">
+		<div class="card-body">
+			<form method="POST" action="/problems/{{ $problem->id }}/solutions">
+				{{ csrf_field() }}
+				<div class="form-group">
+					<textarea name="body" placeholder="Your solution here" class="form-control" required></textarea>
+				</div>
+
+				<div class="btn-group">
+					<button type="submit" class="btn post-btn">Post It!</button>
+				</div>
+
+				@include('layouts.errors')
+			</form>
+		</div>
+	</div>
+
 @endsection

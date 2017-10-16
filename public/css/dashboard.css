@@ -17,6 +17,7 @@ h1 {
   margin-top: 20px;
   padding-bottom: 9px;
   border-bottom: 1px solid #eee;
+  color: #4e4caf;
 }
 
 /*
@@ -112,6 +113,9 @@ h1 {
   background-image: linear-gradient(0deg,#4e4caf 2px,rgba(0,150,136,0) 0),linear-gradient(0deg,rgba(0,0,0,.26) 1px,transparent 0);
 }
 
+form{
+  margin-bottom: 0px;
+}
 
 main{
   padding-top: 20px;
@@ -167,4 +171,5 @@ label{
   margin-top: 40px;
   padding-bottom: 9px;
   border-bottom: 2px solid #4e4caf;
+  color: #4e4caf;
 }

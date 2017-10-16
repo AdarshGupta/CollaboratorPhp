@@ -13,4 +13,14 @@ class Problem extends Model
     {
     	return $this->hasMany(Solution::class);
     }
+
+    public function addSolution($body)
+    {
+    	Solution::create([
+    		'problem_id' => $this->id,
+    		'body' => $body
+    	]);
+    	// OR
+    	//$this->solutions()->create(compact('body'));
+    }
 }

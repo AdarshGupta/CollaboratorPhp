@@ -18,7 +18,7 @@
 					<textarea name="body" id="body" class="form-control" ></textarea>
 				</div>
 
-				<div class="form-group">
+				<div class="btn-group">
 					<button type="submit" class="btn post-btn">Post It!</button>
 				</div>
 

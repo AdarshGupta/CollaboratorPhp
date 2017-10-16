@@ -21,3 +21,6 @@ Route::get('/problems/{problem}', 'ProblemsController@show');
 
 // POST /problems  -- to submit post
 Route::post('/problems', 'ProblemsController@store');
+
+// POST submit solutions
+Route::post('/problems/{problem}/solutions', 'SolutionsController@store');
