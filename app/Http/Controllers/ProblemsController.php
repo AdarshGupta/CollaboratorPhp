@@ -7,6 +7,11 @@ use App\Problem;
 
 class ProblemsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
     	$problems = Problem::inRandomOrder()->get();
@@ -33,10 +38,15 @@ class ProblemsController extends Controller
             'body' => 'required'
         ]);
 
-        Problem::create([
-            'summary' => request('summary'),
-            'body' => request('body')
-        ]);
+        // Problem::create([
+        //     'summary' => request('summary'),
+        //     'body' => request('body'),
+        //     'user_id' => auth()->id()
+        // ]);
+        // OR
+        auth()->user()->publish(
+            new Problem(request(['summary', 'body']))
+        );
 
         //then redirect to homepage
         return redirect('/problems');

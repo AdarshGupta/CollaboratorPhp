@@ -13,6 +13,10 @@
             <a href="/problems/{{ $problem->id }}" class="problemTitle">
                 <h4>{{ $problem->summary }}</h4>
             </a>
+            <p>
+                Posted by {{ $problem->user->name }} on 
+                {{ $problem->created_at->toFormattedDateString() }}
+            </p>
             <hr>
             <p class="problemBody">
                 {{ $problem->body }}

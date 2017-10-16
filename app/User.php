@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function problems()
+    {
+        return $this->hasMany(Problem::class);
+    }
+
+    public function publish(Problem $problem)
+    {
+        return $this->problems()->save($problem);
+    }
 }

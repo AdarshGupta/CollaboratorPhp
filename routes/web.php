@@ -11,6 +11,9 @@
 |
 */
 
+// DELETE LATER
+Route::get('/', 'ProblemsController@index');
+
 Route::get('/problems', 'ProblemsController@index');
 
 // Put create before indvidual problem {problem}, it mis-identfies.
@@ -24,3 +27,11 @@ Route::post('/problems', 'ProblemsController@store');
 
 // POST submit solutions
 Route::post('/problems/{problem}/solutions', 'SolutionsController@store');
+
+// User Authentication
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', 'SessionController@create');
+Route::post('/login', 'SessionController@store');
+Route::get('/logout', 'SessionController@destroy');

@@ -14,7 +14,7 @@ class SolutionsController extends Controller
 			'body' => 'required|min:2'
 		]);
 
-		$problem->addSolution(request('body')); // Method called in Problem.php model
+		$problem->addSolution(request('body'), \Auth::user()->id); // Method called in Problem.php model
 
 		return back(); //Redirect
 	}

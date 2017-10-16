@@ -20,35 +20,44 @@
 
 	<div class="solutions">
 		<ul class="list-group">
+
 			@foreach($problem->solutions as $solution)
-			<li class="card list-group-item">
-				<strong>
-					{{ $solution->created_at->diffForHumans() }}: &nbsp;
-				</strong>
-				{{ $solution->body }}	
-			</li>
+
+				<li class="card list-group-item">
+					<strong>
+						{{ $solution->user->name }} ({{ $solution->created_at->diffForHumans() }}): &nbsp;
+					</strong>
+					{{ $solution->body }}	
+				</li>
+
 			@endforeach
+
 		</ul>
 	</div>
 
-	<hr>
+	
 	{{-- Add a comment --}}
+	{{-- Show only if user logged in --}}
+	@if (Auth::check())
 
-	<div class="card">
-		<div class="card-body">
-			<form method="POST" action="/problems/{{ $problem->id }}/solutions">
-				{{ csrf_field() }}
-				<div class="form-group">
-					<textarea name="body" placeholder="Your solution here" class="form-control" required></textarea>
-				</div>
+		<hr>
+		
+		<div class="card">
+			<div class="card-body">
+				<form method="POST" action="/problems/{{ $problem->id }}/solutions">
+					{{ csrf_field() }}
+					<div class="form-group">
+						<textarea name="body" placeholder="Your solution here" class="form-control" required></textarea>
+					</div>
 
-				<div class="btn-group">
-					<button type="submit" class="btn post-btn">Post It!</button>
-				</div>
+					<div class="btn-group">
+						<button type="submit" class="btn post-btn">Post It!</button>
+					</div>
 
-				@include('layouts.errors')
-			</form>
+					@include('layouts.errors')
+				</form>
+			</div>
 		</div>
-	</div>
 
+	@endif
 @endsection
