@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Problem;
+use App\Repositories\Problems;
 
 class ProblemsController extends Controller
 {
@@ -12,9 +13,12 @@ class ProblemsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    //The argument here is Automatic Dependency Injection
+    public function index(Problems $problems)
     {
-    	$problems = Problem::inRandomOrder()->get();
+    	//$problems = Problem::inRandomOrder()->get();
+        // Replaced by Dependency Injection
+        $problems = $problems->randomPosts();
     	return view('problems.index', compact('problems'));
     }
 
